@@ -32,3 +32,32 @@ def daily_min(data):
     """Calculate the daily min of a 2d inflammation data array."""
     return np.min(data, axis=0)
 
+def load_json(filename):
+    """Load a numpy array from a JSON document.
+
+    Expected format:
+    [
+        {
+            observations: [0, 1]
+        },
+        {
+            observations: [0, 2]
+        }
+    ]
+
+    :param filename: Filename of CSV to load
+
+    """
+    with open(filename, 'r', encoding='utf-8') as file:
+        data_as_json = json.load(file)
+        return [np.array(entry['observations']) for entry in data_as_json]
+
+def analyse_data(data_source):
+    """Calculate the standard deviation by day between datasets
+    Gets all the inflammation csvs within a directory, works out the mean
+    inflammation value for each day across all datasets, then graphs the
+    standard deviation of these means."""
+    data = data_source.load_inflammation_data()
+    daily_standard_deviation = compute_standard_deviation_by_data(data)
+
+    return daily_standard_deviation
