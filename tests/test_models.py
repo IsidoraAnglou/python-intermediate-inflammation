@@ -30,8 +30,6 @@ def test_daily_mean_integers():
 
     # Need to use Numpy testing functions to compare arrays
     npt.assert_array_equal(daily_mean(test_input), test_result)
-<<<<<<< HEAD
-=======
 
 
 @pytest.mark.parametrize('data, expected_standard_deviation', [
@@ -45,4 +43,3 @@ def test_daily_standard_deviation(data, expected_standard_deviation):
     from inflammation.models import standard_deviation
     result_data = standard_deviation(data)
     npt.assert_approx_equal(result_data, expected_standard_deviation)
->>>>>>> feature-std-dev
