@@ -27,11 +27,15 @@ def main(args):
     for filename in infiles:
         inflammation_data = models.load_csv(filename)
 
+<<<<<<< HEAD
         view_data = {
             'average': models.daily_mean(inflammation_data),
             'max': models.daily_max(inflammation_data),
             'min': models.daily_min(inflammation_data)
         }
+=======
+        view_data = {'average': models.daily_mean(inflammation_data), 'max': models.daily_max(inflammation_data), 'min': models.daily_min(inflammation_data), 'standard_deviation': models.standard_deviation(inflammation_data)}
+>>>>>>> feature-std-dev
 
         views.visualize(view_data)
 

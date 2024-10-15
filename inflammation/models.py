@@ -30,6 +30,7 @@ def daily_min(data):
     """Calculate the daily min of a 2D inflammation data array."""
     return np.min(data, axis=0)
 
+<<<<<<< HEAD
 def load_json(filename):
     """Load a numpy array from a JSON document.
 
@@ -59,3 +60,10 @@ def analyse_data(data_source):
     daily_standard_deviation = compute_standard_deviation_by_data(data)
 
     return daily_standard_deviation
+=======
+
+def standard_deviation(data):
+    """Computes and returns standard deviation for data."""
+    standard_deviation_values = np.std(data,axis=0)
+    return standard_deviation_values
+>>>>>>> feature-std-dev
